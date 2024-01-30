@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+body{
+    background: linear-gradient(0deg, rgba(221,219,214,1) 83%, rgba(54,148,138,1) 83%);
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+#app{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.container{
+    width: 1400px;
+    height: calc(100vh - 40px);
+    background-color: #fff;
+    display: flex;
+
+}
+
+.container .left-side{
+    flex: 30%;
+    background-color:  #fff;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.container .left-side .header{
+    width: 100%;
+    height: 60px;
+    background-color: #EAEAEA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 15px;
+}
+
+.container .left-side .header .user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+.container .left-side .header .user span{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.container .left-side .header .userImage{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.container .left-side .header i{
+    color: #b1b1b1;
+    margin: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container .right-side{
+    flex: 70%;
+    background-image: url(../img/mine.jpg);
+}
