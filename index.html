@@ -48,6 +48,23 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
+
+                <div class="chatList">
+                    <div class="chat" v-for="(element, index) in contacts" :key="index">
+                        <figure>
+                            <img :src="element.avatar" alt="">
+                        </figure>
+                        <div class="details">
+                            <div class="name">
+                                <h4>{{element.name}}</h4>
+                                <span class="time">12:00</span>
+                            </div>
+                            <div class="message">
+                                <p>last message</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="right-side"></div>

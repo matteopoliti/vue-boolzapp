@@ -31,6 +31,7 @@ img{
     flex: 35%;
     background-color:  #fff;
     border-right: 1px solid rgba(0, 0, 0, 0.2);
+    overflow-x: hidden;
 }
 
 .container .left-side .header{
@@ -126,10 +127,57 @@ img{
 
 }
 
+.container .left-side .chatList{
+    height: calc(100% - 205px);
+    overflow-y: auto;
 
+}
 
+.container .left-side .chatList .chat{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
 
+.container .left-side .chatList .chat figure img{
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
+}
 
+.container .left-side .chatList .chat .details{
+    width: 85%;
+    margin: 0 auto;
+}
+
+.container .left-side .chatList .chat .details .name{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.container .left-side .chatList .chat .details .name h4{
+    font-size: 14px;
+    
+}
+.container .left-side .chatList .chat .details .name .time{
+    font-size: 10px;
+    color: #aaa;
+    
+}
+
+.container .left-side .chatList .chat .details .message {
+    font-size: 12px;
+    width: 60%;
+    color: #aaa;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 
 
 
