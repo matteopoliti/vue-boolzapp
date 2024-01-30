@@ -3,6 +3,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
+        immagineCorrente : 0,
         contacts: [
             {
                 name: 'Michele',
@@ -167,5 +168,10 @@ const { createApp } = Vue
             }
             ]
       }
-    }
+    },
+    methods: {
+        changeImage(index){
+            this.immagineCorrente = index 
+        },
+    },
   }).mount('#app')

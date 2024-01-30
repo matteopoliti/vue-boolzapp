@@ -50,9 +50,10 @@
                 </div>
 
                 <div class="chatList">
-                    <div class="chat" v-for="(element, index) in contacts" :key="index">
+                    <div class="chat" 
+                    v-for="(element, index) in contacts" :key="index" @click="changeImage(index)">
                         <figure>
-                            <img :src="element.avatar" alt="">
+                            <img :src="element.avatar" alt="contact Image" class="contactImage">
                         </figure>
                         <div class="details">
                             <div class="name">
@@ -67,8 +68,47 @@
                 </div>
             </div>
 
-            <div class="right-side"></div>
+            <div class="right-side">
+                <div class="header">
+                    <div class="imgText">
+                        <figure>
+                            <img :src="contacts[immagineCorrente].avatar" alt="contact Image" class="contactImage">
+                        </figure>
+                        <div>
+                            <h4>{{contacts[immagineCorrente].name}}</h4>
+                            <span class="time">Ultimo accesso 12:00</span>
 
+                        </div>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+
+                <div class="chatBox">
+                    <div class="message sent">
+                        <div >
+                            <p>hi</p>
+                            <span>12:15</span>
+                        </div>
+                    </div>
+                    <div class="message received">
+                        <div>
+                            <p>hi, how are u?</p>
+                            <span>12:15</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="chatBox-input">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input type="text" placeholder="Scrivi un messaggio">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
+
+            </div>
         </div>
 
     </div>

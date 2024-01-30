@@ -141,8 +141,12 @@ img{
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
+.container .left-side .chatList .chat:hover{
+    background-color: rgb(177, 177, 177, 0.2);
+    cursor: pointer;
+}
 
-.container .left-side .chatList .chat figure img{
+.contactImage{
     width: 55px;
     height: 55px;
     overflow: hidden;
@@ -189,4 +193,85 @@ img{
 .container .right-side{
     flex: 65%;
     background-image: url(../img/mine.jpg);
+}
+
+.container .right-side .header{
+    width: 100%;
+    height: 70px;
+    background-color: #EAEAEA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .right-side .header .imgText{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+}
+.container .right-side .header .imgText h4{
+    font-size: 14px;
+    margin-left: 15px;
+    font-weight: 700;
+}
+.container .right-side .header .imgText span{
+    font-size: 12px;
+    margin-left: 15px;
+    color: #aaa;
+}
+
+.container .right-side .header > div:nth-child(2){
+    font-size: 20px;
+    display: flex;
+    gap: 20px;
+    margin-right: 10px;
+    color: #aaa;
+}
+
+.container .right-side .chatBox{
+    width: 100%;
+    height: calc(100% - 120px);
+    padding: 50px 80px;
+    overflow-y: auto;
+}
+
+.container .right-side .chatBox .message{
+    display: flex;
+    width: 100%;
+    margin: 5px 0;
+    text-align: right;
+}
+
+.container .right-side .chatBox .message.sent div{
+    text-align: right;
+    max-width: 65%;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #d5f9ba;
+}
+
+.container .right-side .chatBox .message.received div{
+    text-align: right;
+    max-width: 65%;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+
+.container .right-side .chatBox .message div p{
+    font-size: 14px;
+}
+.container .right-side .chatBox .message div span{
+    font-size: 10px;
+    color: #aaa;
+}
+
+.sent{
+    justify-content: flex-end;
+}
+
+.received{
+    justify-content: flex-start;
 }
