@@ -145,6 +145,10 @@ img{
     background-color: rgb(177, 177, 177, 0.2);
     cursor: pointer;
 }
+.active{
+    background-color: rgb(177, 177, 177, 0.2);
+    cursor: pointer;
+}
 
 .contactImage{
     width: 55px;
@@ -174,7 +178,7 @@ img{
     
 }
 
-.container .left-side .chatList .chat .details .message {
+.container .left-side .chatList .chat .details .last-message {
     font-size: 12px;
     width: 60%;
     color: #aaa;

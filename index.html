@@ -51,7 +51,8 @@
 
                 <div class="chatList">
                     <div class="chat" 
-                    v-for="(element, index) in contacts" :key="index" @click="changeImage(index)">
+                    v-for="(element, index) in contacts" :key="index" @click="changeContact(index)"
+                    :class="( selectedContact === index) ? 'active' : '' ">
                         <figure>
                             <img :src="element.avatar" alt="contact Image" class="contactImage">
                         </figure>
@@ -60,8 +61,8 @@
                                 <h4>{{element.name}}</h4>
                                 <span class="time">12:00</span>
                             </div>
-                            <div class="message">
-                                <p>last message</p>
+                            <div class="last-message">
+                                <p>{{ lastMessage(element) }}</p>
                             </div>
                         </div>
                     </div>
@@ -72,10 +73,10 @@
                 <div class="header">
                     <div class="imgText">
                         <figure>
-                            <img :src="contacts[immagineCorrente].avatar" alt="contact Image" class="contactImage">
+                            <img :src="contacts[selectedContact].avatar" alt="contact Image" class="contactImage">
                         </figure>
                         <div>
-                            <h4>{{contacts[immagineCorrente].name}}</h4>
+                            <h4>{{contacts[selectedContact].name}}</h4>
                             <span class="time">Ultimo accesso 12:00</span>
 
                         </div>
@@ -88,18 +89,15 @@
                 </div>
 
                 <div class="chatBox">
-                    <div class="message sent">
+                    <div class="message"  
+                    v-for="(message, messageIndex) in contacts[selectedContact].messages" :key="messageIndex"
+                    :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }">
                         <div >
-                            <p>hi</p>
-                            <span>12:15</span>
+                            <p>{{ message.message }}</p>
+                            <span>{{ message.date }}</span>
                         </div>
                     </div>
-                    <div class="message received">
-                        <div>
-                            <p>hi, how are u?</p>
-                            <span>12:15</span>
-                        </div>
-                    </div>
+                
 
                 </div>
                 <div class="chatBox-input">

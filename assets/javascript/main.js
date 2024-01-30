@@ -3,7 +3,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
-        immagineCorrente : 0,
+        selectedContact : 0,
         contacts: [
             {
                 name: 'Michele',
@@ -170,8 +170,16 @@ const { createApp } = Vue
       }
     },
     methods: {
-        changeImage(index){
-            this.immagineCorrente = index 
+        changeContact(index){
+            this.selectedContact = index 
+        },
+        lastMessage(contact) {
+            if (contact.messages.length > 0) {
+                const lastMessage = contact.messages.slice(-1)[0];
+                return `${lastMessage.message}`;
+            }
+            return "Nessun messaggio disponibile";
         },
     },
+    
   }).mount('#app')
