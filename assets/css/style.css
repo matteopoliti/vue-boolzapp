@@ -231,7 +231,7 @@ img{
 
 .container .right-side .chatBox{
     width: 100%;
-    height: calc(100% - 120px);
+    height: calc(100% - 130px);
     padding: 50px 80px;
     overflow-y: auto;
 }
@@ -239,12 +239,12 @@ img{
 .container .right-side .chatBox .message{
     display: flex;
     width: 100%;
-    margin: 5px 0;
+    margin: 10px 0;
     text-align: right;
 }
 
 .container .right-side .chatBox .message.sent div{
-    text-align: right;
+    min-width: 25%;
     max-width: 65%;
     padding: 12px;
     border-radius: 10px;
@@ -252,7 +252,7 @@ img{
 }
 
 .container .right-side .chatBox .message.received div{
-    text-align: right;
+    min-width: 25%;
     max-width: 65%;
     padding: 12px;
     border-radius: 10px;
@@ -262,10 +262,12 @@ img{
 
 .container .right-side .chatBox .message div p{
     font-size: 14px;
+    text-align: left;
 }
 .container .right-side .chatBox .message div span{
     font-size: 10px;
     color: #aaa;
+    text-align: right;
 }
 
 .sent{
@@ -274,4 +276,28 @@ img{
 
 .received{
     justify-content: flex-start;
+}
+
+.chatBox-input{
+    width: 100%;
+    height: 60px;
+    background-color: #f3eeea;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chatBox-input i{
+    color: #aaa;
+    font-size: 20px;
+}
+
+.chatBox-input input{
+    width: 90%;
+    margin: 0 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 14px;
 }
