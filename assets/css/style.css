@@ -296,6 +296,7 @@ img{
 .chatBox-input i{
     color: #aaa;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .chatBox-input input{

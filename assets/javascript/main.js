@@ -5,10 +5,17 @@ const { createApp } = Vue
       return {
         selectedContact : 0,
         newMessage : {
-            date:"",
+            date: "",
             message: "",
             status: 'sent'
         },
+        newMessageReceived : {
+            date: "",
+            message: "Ok",
+            status: 'received'
+        },
+        date: new Date(),
+        autoReply: null,
         contacts: [
             {
                 name: 'Michele',
@@ -176,7 +183,8 @@ const { createApp } = Vue
     },
     methods: {
         changeContact(index){
-            this.selectedContact = index 
+            this.selectedContact = index;
+            this.newMessage.message = "";
         },
         lastMessage(contact) {
             if (contact.messages.length > 0) {
@@ -187,11 +195,31 @@ const { createApp } = Vue
         },
         addNewMessage(){
             if(this.newMessage.message !== ""){
+                this.newMessage.date = this.formatDate();
                 this.contacts[this.selectedContact].messages.push({ ...this.newMessage })
             }
             this.newMessage.message = "";
-
         },
+        addNewMessageReceived(){
+            if(this.newMessageReceived.message !== ""){
+                this.newMessageReceived.date = this.formatDate();
+                this.contacts[this.selectedContact].messages.push({ ...this.newMessageReceived })
+            }
+        },
+        replyInterval(){
+            this.autoReply = setTimeout(() => {
+                this.addNewMessageReceived()
+            }, 2000)
+        },
+        handleClick() {
+            this.addNewMessage();
+            this.replyInterval();
+          },
+        formatDate() {
+            const hours = this.date.getHours().toString().padStart(2, '0');
+            const minutes = this.date.getMinutes().toString().padStart(2, '0');
+            return `${hours}:${minutes}`;
+        }
     }
     
   }).mount('#app')
