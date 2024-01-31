@@ -4,6 +4,11 @@ const { createApp } = Vue
     data() {
       return {
         selectedContact : 0,
+        newMessage : {
+            date:"",
+            message: "",
+            status: 'sent'
+        },
         contacts: [
             {
                 name: 'Michele',
@@ -180,6 +185,13 @@ const { createApp } = Vue
             }
             return "Nessun messaggio disponibile";
         },
-    },
+        addNewMessage(){
+            if(this.newMessage.message !== ""){
+                this.contacts[this.selectedContact].messages.push({ ...this.newMessage })
+            }
+            this.newMessage.message = "";
+
+        },
+    }
     
   }).mount('#app')

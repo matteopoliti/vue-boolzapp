@@ -23,7 +23,7 @@
                 <div class="header">
                     <div class="user">
                         <figure>
-                            <img src="./assets/img/avatar_1.jpg" alt="avatar 1" class="userImage">
+                            <img src="./assets/img/avatar_io.jpg" alt="avatar 1" class="userImage">
                         </figure>
                         <span>Matteo</span>
                     </div>
@@ -102,8 +102,10 @@
                 </div>
                 <div class="chatBox-input">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio">
-                    <i class="fa-solid fa-microphone"></i>
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage.message" @keyUp.enter = "addNewMessage">
+                    <i class="fa-solid"
+                    :class="(newMessage.message == '') ? 'fa-microphone':'fa-paper-plane' "
+                    @click="addNewMessage"></i>
                 </div>
 
             </div>

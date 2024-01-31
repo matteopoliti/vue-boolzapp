@@ -78,12 +78,14 @@ img{
     align-items: center;
     padding-inline: 15px;
 }
+
 .container .left-side .notifications div:first-child i{
     background-color: #fff;
     color: #8edafc;
     padding: 10px;
     border-radius: 50%;
     font-size: 25px;
+    aspect-ratio: 1;
 }
 
 .container .left-side .notifications div:nth-child(2) p{
