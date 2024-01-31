@@ -44,14 +44,14 @@
                 </div>
                 <div class="search">
                     <div>
-                        <input type="text" placeholder="Search o start a new chat">
+                        <input type="text" placeholder="Search o start a new chat" v-model="searchContact">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
 
                 <div class="chatList">
                     <div class="chat" 
-                    v-for="(element, index) in contacts" :key="index" @click="changeContact(index)"
+                    v-for="(element, index) in contacts.filter(filterContacts)" :key="index" @click="changeContact(index)"
                     :class="( selectedContact === index) ? 'active' : '' ">
                         <figure>
                             <img :src="element.avatar" alt="contact Image" class="contactImage">

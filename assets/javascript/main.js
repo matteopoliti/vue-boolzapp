@@ -4,6 +4,7 @@ const { createApp } = Vue
     data() {
       return {
         selectedContact : 0,
+        searchContact: "",
         newMessage : {
             date: "",
             message: "",
@@ -219,6 +220,9 @@ const { createApp } = Vue
             const hours = this.date.getHours().toString().padStart(2, '0');
             const minutes = this.date.getMinutes().toString().padStart(2, '0');
             return `${hours}:${minutes}`;
+        },
+        filterContacts(contact) {
+            return contact.name.toLowerCase().includes(this.searchContact.toLowerCase());
         }
     }
     
