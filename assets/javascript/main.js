@@ -182,6 +182,11 @@ const { createApp } = Vue
             ]
       }
     },
+    created() {
+        setInterval(() => {
+          this.date = new Date();
+        }, 10000); 
+    },
     methods: {
         changeContact(index){
             this.selectedContact = index;
@@ -230,7 +235,10 @@ const { createApp } = Vue
                 }
                 
             });
-        }
+        },
+        remove(index){
+            this.contacts[this.selectedContact].messages.splice(index, 1);
+        },
     }
     
   }).mount('#app')

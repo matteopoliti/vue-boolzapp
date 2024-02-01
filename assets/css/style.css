@@ -12,6 +12,15 @@ img{
     display: block;
     width: 100%;
 }
+figure{
+    margin: 0;
+}
+p{
+    margin: 0;
+}
+h4{
+    margin-bottom: 0;
+}
 
 #app{
     display: flex;
@@ -24,7 +33,7 @@ img{
     height: calc(100vh - 40px);
     background-color: #fff;
     display: flex;
-
+    --bs-gutter-x: 0;
 }
 
 .container .left-side{
@@ -255,6 +264,7 @@ img{
     padding: 12px;
     border-radius: 10px;
     background-color: #d5f9ba;
+    cursor: pointer;
 }
 
 .container .right-side .chatBox .message.received div{
@@ -263,6 +273,7 @@ img{
     padding: 12px;
     border-radius: 10px;
     background-color: #fff;
+    cursor: pointer;
 }
 
 
