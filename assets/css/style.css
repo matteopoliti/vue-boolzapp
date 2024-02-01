@@ -290,9 +290,11 @@ h4{
 .sent{
     justify-content: flex-end;
 }
-
 .received{
     justify-content: flex-start;
+}
+.empty{
+    justify-content: center;
 }
 
 .chatBox-input{

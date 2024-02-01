@@ -5,6 +5,7 @@ const { createApp } = Vue
       return {
         selectedContact : 0,
         searchContact: "",
+        intervalDate: null,
         newMessage : {
             date: "",
             message: "",
@@ -183,9 +184,10 @@ const { createApp } = Vue
       }
     },
     created() {
-        setInterval(() => {
+        this.intervalDate = setInterval(() => {
           this.date = new Date();
-        }, 10000); 
+        }, 10000);
+        
     },
     methods: {
         changeContact(index){
@@ -202,14 +204,25 @@ const { createApp } = Vue
         addNewMessage(){
             if(this.newMessage.message !== ""){
                 this.newMessage.date = this.formatDate();
-                this.contacts[this.selectedContact].messages.push({ ...this.newMessage })
+
+                const messages = this.contacts[this.selectedContact].messages; 
+                for (let i = 0; i < messages.length; i++) {
+                    if (messages[i].status === 'empty') {
+                        messages.splice(i, 1);
+                    }
+                }
+
+                messages.push({ ...this.newMessage })
             }
             this.newMessage.message = "";
         },
         addNewMessageReceived(){
             if(this.newMessageReceived.message !== ""){
                 this.newMessageReceived.date = this.formatDate();
-                this.contacts[this.selectedContact].messages.push({ ...this.newMessageReceived })
+
+                const messages = this.contacts[this.selectedContact].messages;
+                
+                messages.push({ ...this.newMessageReceived })
             }
         },
         replyInterval(){
@@ -236,8 +249,19 @@ const { createApp } = Vue
                 
             });
         },
-        remove(index){
-            this.contacts[this.selectedContact].messages.splice(index, 1);
+        remove(index) {
+            const messages = this.contacts[this.selectedContact].messages;
+        
+            if (messages.length > 0) {
+                messages.splice(index, 1);
+            
+                if (messages.length === 0) {
+                    messages.push({
+                        message: "",
+                        status: "empty"
+                    });
+                }
+            }
         },
     }
     

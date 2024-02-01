@@ -97,12 +97,16 @@
                     <div class="message dropdown"  
                     v-for="(message, messageIndex) in contacts[selectedContact].messages" 
                     :key="messageIndex"
-                    :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }">
-                        <div data-bs-toggle="dropdown">
+                    :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received', 'empty': message.status === 'empty'}">
+                        <div v-if="!message.message" class="bg-light p-2 rounded ">
+                            <span>Non sono presenti messaggi in questa chat</span>
+                        </div>
+
+                        <div v-else data-bs-toggle="dropdown">
                             <p class="m-0">{{ message.message }}</p>
                             <span>{{ message.date }}</span>
                         </div>
-                        <ul class="dropdown-menu">
+                        <ul :class="(message.status === 'empty')? 'd-none':'dropdown-menu' ">
                             <li><a class="dropdown-item" href="#">Message info</a></li>
                             <li><a class="dropdown-item" href="#"  @click = "remove(messageIndex)">Delete message</a></li>
                           </ul>
