@@ -221,8 +221,15 @@ const { createApp } = Vue
             const minutes = this.date.getMinutes().toString().padStart(2, '0');
             return `${hours}:${minutes}`;
         },
-        filterContacts(contact) {
-            return contact.name.toLowerCase().includes(this.searchContact.toLowerCase());
+        filterContacts() {
+            this.contacts.forEach(element => {
+                if(element.name.toLowerCase().includes(this.searchContact.toLowerCase())){
+                    element.visible = true;
+                }else{
+                    element.visible = false
+                }
+                
+            });
         }
     }
     

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whatsapp Web</title>
+    <title>Boolzapp Web</title>
 
     <!-- link font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,15 +44,16 @@
                 </div>
                 <div class="search">
                     <div>
-                        <input type="text" placeholder="Search o start a new chat" v-model="searchContact">
+                        <input type="text" placeholder="Search o start a new chat" v-model="searchContact" @keyup="filterContacts">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
 
                 <div class="chatList">
-                    <div class="chat" 
-                    v-for="(element, index) in contacts.filter(filterContacts)" :key="index" @click="changeContact(index)"
-                    :class="( selectedContact === index) ? 'active' : '' ">
+                    <div :class="(element.visible )? 'chat' : '' " 
+                    v-for="(element, index) in contacts" :key="index" @click="changeContact(index)"
+                    :class="( selectedContact === index) ? 'active' : '' "
+                    v-show="element.visible">
                         <figure>
                             <img :src="element.avatar" alt="contact Image" class="contactImage">
                         </figure>
